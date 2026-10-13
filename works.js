@@ -20,7 +20,7 @@ const works = [
     id: "demo-02",
     title: "부천여고 청천벽력",
     career: "예술·미디어",
-    place: "부천아트센터를 모티프로 한 공연 공간",
+    place: "밴드의 열정을 분출하는 공간",
     description: "청천벽력 소개 영상입니다.",
     videoUrl: "https://drive.google.com/file/d/1yM8xEc0ugmShhg-_6eFEghi4fZ-YTHIl/view?usp=sharing",
     x: 65,
