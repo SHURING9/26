@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="진로 사운드스케이프 온라인 전시">
+  <title>소리로 만나는 진로 지도</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="brand-mark" aria-hidden="true">♫</div>
+    <div>
+      <p class="eyebrow">BUCHEON WONMI-GU × SOUNDSCAPE</p>
+      <h1>부천 원미구, 소리로 만나는 진로 지도</h1>
+      <p class="subtitle">경기도 부천시 원미구의 공간과 일상을 진로의 소리로 기록합니다.</p>
+    </div>
+  </header>
+
+  <main>
+    <section class="intro">
+      <div>
+        <p class="section-kicker">OUR SOUND ATLAS</p>
+        <h2>진로의 풍경을 소리로 기록하다</h2>
+        <p>지도 속 장소를 눌러 학생들이 만든 사운드스케이프 작품을 감상해 보세요.</p>
+      </div>
+      <a class="submit-link" href="YOUR_GOOGLE_FORM_URL" target="_blank" rel="noopener">작품 제출하기 ↗</a>
+    </section>
+
+    <section class="toolbar" aria-label="작품 필터">
+      <label for="careerFilter">진로 분야</label>
+      <select id="careerFilter">
+        <option value="all">모든 분야</option>
+        <option value="의료·보건">의료·보건</option>
+        <option value="예술·미디어">예술·미디어</option>
+        <option value="교육·사회">교육·사회</option>
+        <option value="공학·기술">공학·기술</option>
+        <option value="환경·생태">환경·생태</option>
+        <option value="기타">기타</option>
+      </select>
+      <span id="workCount" class="work-count" aria-live="polite"></span>
+    </section>
+
+    <section class="map-frame" aria-label="일러스트 지도와 작품 핀">
+      <div class="map-heading">
+        <span>✦ BUCHEON · WONMI-GU SOUND MAP</span>
+        <span class="map-hint">장소의 핀을 눌러 작품 열기</span>
+      </div>
+      <div class="map-canvas" id="mapCanvas">
+        <img class="map-art" src="assets/illustrated-map.png" alt="부천 원미구의 도심과 공원, 문화시설을 모티프로 만든 일러스트 지도">
+        <div id="pinLayer" class="pin-layer"></div>
+        <div id="emptyMessage" class="empty-message" hidden>이 분야에 등록된 작품이 아직 없어요.</div>
+      </div>
+      <div class="map-legend">
+        <span><i class="legend-dot"></i> 공개 승인 작품</span>
+        <span>※ 원미구를 모티프로 한 일러스트이며, 실제 도로·행정경계·시설 위치와 다를 수 있습니다.</span>
+      </div>
+    </section>
+
+    <section class="works-section">
+      <div class="section-title-row">
+        <div>
+          <p class="section-kicker">LISTEN & EXPLORE</p>
+          <h2>공개된 작품</h2>
+        </div>
+        <p class="small-note">학생 이름 대신 작품명과 진로 분야 중심으로 감상합니다.</p>
+      </div>
+      <div id="workList" class="work-list"></div>
+    </section>
+  </main>
+
+  <footer>
+    <p>부천 원미구 진로 사운드스케이프 프로젝트 · 음악 감상과 비평</p>
+    <p>작품은 담당 교사의 확인 후 공개됩니다.</p>
+  </footer>
+
+  <dialog id="workDialog" class="work-dialog">
+    <button id="closeDialog" class="close-button" aria-label="팝업 닫기">×</button>
+    <p id="dialogCareer" class="dialog-career"></p>
+    <h2 id="dialogTitle"></h2>
+    <p id="dialogPlace" class="dialog-place"></p>
+    <div id="videoArea" class="video-area"></div>
+    <h3>작품 기획 의도</h3>
+    <p id="dialogDescription" class="dialog-description"></p>
+    <p class="dialog-credit">작품 정보는 교사 검토 후 공개되었습니다.</p>
+  </dialog>
+
+  <script src="works.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
