@@ -18,14 +18,14 @@ const works = [
   },
   {
     id: "demo-02",
-    title: "공연이 시작되기 전",
+    title: "부천여고 청천벽력",
     career: "예술·미디어",
     place: "부천아트센터를 모티프로 한 공연 공간",
-    description: "예시 작품입니다. 관객의 웅성거림, 악기 조율, 무대 뒤 준비 소리를 통해 공연장의 긴장감과 기대감을 구성합니다.",
-    videoUrl: "",
+    description: "청천벽력 소개 영상입니다.",
+    videoUrl: "https://drive.google.com/file/d/1yM8xEc0ugmShhg-_6eFEghi4fZ-YTHIl/view?usp=sharing",
     x: 65,
     y: 24,
-    icon: "♫"
+    icon: "🥁"
   },
   {
     id: "demo-03",
