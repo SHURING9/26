@@ -104,6 +104,37 @@ footer p { margin: 3px; }
   .map-frame { padding: 9px; border-radius: 17px; }
   .map-legend { flex-direction: column; gap: 4px; }
   .map-pin { width: 35px; height: 35px; min-height: 35px; padding: 0; gap: 0; font-size: 15px; max-width: none; }
+  
+#videoArea iframe {
+  display: block;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  min-height: 240px;
+  border: 0;
+  border-radius: 12px;
+  background: #f4f3ef;
+}
+
+#videoArea a {
+  display: inline-block;
+  margin-top: 12px;
+  color: #356b57;
+  overflow-wrap: anywhere;
+}
+
+#videoArea .video-placeholder {
+  padding: 20px;
+  border-radius: 12px;
+  background: #f4f3ef;
+  line-height: 1.7;
+}
+
+@media (max-width: 600px) {
+  #videoArea iframe {
+    min-height: 200px;
+  }
+}
+
   .pin-label { display: none; }
   .map-pin::after { width: 7px; height: 7px; bottom: -5px; left: calc(50% - 4px); }
   .site-header { padding-top: 20px; padding-bottom: 20px; }
