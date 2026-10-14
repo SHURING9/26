@@ -23,7 +23,7 @@ const dialogPlace = document.getElementById("dialogPlace");
 const dialogDescription = document.getElementById("dialogDescription");
 const videoArea = document.getElementById("videoArea");
 const closeDialogButton = document.getElementById("closeDialog");
-
+let sheetWorks = [];
 
 /* ==========================================
    안전한 외부 링크 생성
@@ -348,7 +348,7 @@ function render() {
 
   const selectedCareer = filter.value;
 
-  const visibleWorks = works.filter(work => {
+  const visibleWorks = sheetWorks.filter(work => {
     return (
       selectedCareer === "all" ||
       work.career === selectedCareer
@@ -390,9 +390,44 @@ dialog.addEventListener("close", () => {
   videoArea.replaceChildren();
 });
 
-// works.js의 데이터 사용
-if (Array.isArray(works)) {
+
+/* ==========================================
+   Google 스프레드시트에서 승인 작품 불러오기
+========================================== */
+
+const SHEET_API_URL =
+  "https://script.google.com/a/macros/goedu.kr/s/AKfycbwpjSZ7NxgfxeEBVoj-P9o2prAadgsgPmCR0C_4_JuVihW5K-EFe0Wsrdw9PgbvnCqA/exec";
+
+window.receiveWorksFromSheet = function(data) {
+  if (!Array.isArray(data)) {
+    console.error("스프레드시트 데이터 형식이 올바르지 않습니다.", data);
+    emptyMessage.textContent = "작품 데이터를 불러오지 못했습니다.";
+    emptyMessage.hidden = false;
+    return;
+  }
+
+  sheetWorks = data;
   render();
-} else {
-  console.error("works.js의 works 배열을 확인해 주세요.");
+};
+
+function loadWorksFromSheet() {
+  const script = document.createElement("script");
+
+  script.src =
+    SHEET_API_URL +
+    "?callback=receiveWorksFromSheet&t=" +
+    Date.now();
+
+  script.onerror = function() {
+    console.error("스프레드시트 연결에 실패했습니다.");
+    emptyMessage.textContent =
+      "작품 데이터를 불러오지 못했습니다. 잠시 후 다시 확인해 주세요.";
+    emptyMessage.hidden = false;
+  };
+
+  document.head.appendChild(script);
 }
+
+// 페이지가 열리면 승인된 작품 불러오기
+loadWorksFromSheet();
+
