@@ -396,7 +396,7 @@ dialog.addEventListener("close", () => {
 ========================================== */
 
 const SHEET_API_URL =
-  "https://script.google.com/a/macros/goedu.kr/s/AKfycbwpjSZ7NxgfxeEBVoj-P9o2prAadgsgPmCR0C_4_JuVihW5K-EFe0Wsrdw9PgbvnCqA/exec";
+  "https://script.google.com/macros/s/AKfycbwpjSZ7NxgfxeEBVoj-P9o2prAadgsgPmCR0C_4_JuVihW5K-EFe0Wsrdw9PgbvnCqA/exec";
 
 window.receiveWorksFromSheet = function(data) {
   if (!Array.isArray(data)) {
