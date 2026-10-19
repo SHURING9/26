@@ -150,9 +150,11 @@ footer p { margin: 3px; }
 }
 
 .comment-section {
-  margin-top: 28px;
+  margin-top: 15px;
   padding-top: 20px;
-  border-top: 1px dashed rgba(71, 123, 99, 0.35);
+  { border-top: 1px solid var(--line); padding-top: 12px; color: var(--muted); font-size: .8rem; margin-bottom: 0; }
+@media (max-width: 720px) {
+.intro, .section-title-row { align-items: start; flex-direction: column; }
 }
 
 .comment-section h3 {
