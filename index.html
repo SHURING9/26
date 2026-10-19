@@ -1,6 +1,3 @@
-
-
-Index · HTML
 <!doctype html>
 <html lang="ko">
 <head>
@@ -19,7 +16,7 @@ Index · HTML
       <p class="subtitle">진로와 닿아있는 주변의 소리를 담아 나의 꿈을 구체화하고 청각자료로 실현시키는 프로젝트</p>
     </div>
   </header>
- 
+
   <main>
     <section class="intro">
       <div>
@@ -28,7 +25,7 @@ Index · HTML
         <p>지도 속 장소를 눌러 학생들이 만든 사운드스케이프 작품을 감상해 보세요.</p>
       </div>
     </section>
- 
+
     <section class="toolbar" aria-label="작품 필터">
       <label for="careerFilter">진로 분야</label>
       <select id="careerFilter">
@@ -42,7 +39,7 @@ Index · HTML
       </select>
       <span id="workCount" class="work-count" aria-live="polite"></span>
     </section>
- 
+
     <section class="map-frame" aria-label="일러스트 지도와 작품 핀">
       <div class="map-heading">
         <span>✦ BCGH * SOUND MAP</span>
@@ -58,7 +55,7 @@ Index · HTML
         <span>※ 원미구를 모티프로 한 일러스트이며, 실제 도로·행정경계·시설 위치와 다를 수 있습니다.</span>
       </div>
     </section>
- 
+
     <section class="works-section">
       <div class="section-title-row">
         <div>
@@ -70,13 +67,13 @@ Index · HTML
       <div id="workList" class="work-list"></div>
     </section>
   </main>
- 
+
   <footer>
     <p>부천여고 진로 사운드스케이프 프로젝트·음악 감상과 비평</p>
     <p>작품은 담당 교사의 확인 후 공개됩니다.</p>
     <p>부천여자고등학교 음악교사 김수진</p>
   </footer>
- 
+
   <dialog id="workDialog" class="work-dialog">
     <button id="closeDialog" class="close-button" aria-label="팝업 닫기">×</button>
     <p id="dialogCareer" class="dialog-career"></p>
@@ -85,11 +82,11 @@ Index · HTML
     <div id="videoArea" class="video-area"></div>
     <h3>작품 기획 의도</h3>
     <p id="dialogDescription" class="dialog-description"></p>
+
     <p class="dialog-credit">작품 정보는 교사 검토 후 공개되었습니다.</p>
   </dialog>
- 
+
   <script src="works.js"></script>
   <script src="app.js"></script>
 </body>
 </html>
- 
