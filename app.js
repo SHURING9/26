@@ -133,12 +133,20 @@ function showGoogleDriveVideo(fileId, originalUrl, title) {
   frame.allowFullscreen = true;
   frame.loading = "lazy";
 
-  const link = createExternalLink(
-    originalUrl,
-    "영상이 보이지 않으면 Google Drive에서 열기 ↗"
-  );
+const link = createExternalLink(
+  originalUrl,
+  "영상이 보이지 않으면 Google Drive에서 열기 ↗"
+);
 
-  videoArea.replaceChildren(frame, link);
+// 안내 링크를 얇게 표시
+link.style.display = "block";
+link.style.padding = "4px 8px";
+link.style.margin = "3px 0";
+link.style.fontSize = "12px";
+link.style.lineHeight = "1.3";
+link.style.fontWeight = "normal";
+
+videoArea.replaceChildren(frame, link);
 }
 
 
