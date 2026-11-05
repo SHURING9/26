@@ -116,6 +116,7 @@ function getGoogleDriveFileId(url) {
 }
 
 
+
 /* ==========================================
    Google Drive 영상 팝업
 ========================================== */
@@ -129,25 +130,37 @@ function showGoogleDriveVideo(fileId, originalUrl, title) {
     "/preview";
 
   frame.title = title + " 영상";
-  frame.allow = "autoplay";
+  frame.allow = "autoplay; fullscreen";
   frame.allowFullscreen = true;
   frame.loading = "lazy";
 
-const link = createExternalLink(
-  originalUrl,
-  "영상이 보이지 않으면 Google Drive에서 열기 ↗"
-);
+  // 영상 영역을 가로로 꽉 채움
+  frame.style.display = "block";
+  frame.style.width = "100%";
+  frame.style.aspectRatio = "16 / 9";
+  frame.style.border = "0";
 
-// 안내 링크를 얇게 표시
-link.style.display = "block";
-link.style.padding = "4px 8px";
-link.style.margin = "3px 0";
-link.style.fontSize = "12px";
-link.style.lineHeight = "1.3";
-link.style.fontWeight = "normal";
+  const link = createExternalLink(
+    originalUrl,
+    "영상이 보이지 않으면 Google Drive에서 열기 ↗"
+  );
 
-videoArea.replaceChildren(frame, link);
+  // 안내 링크 높이와 여백을 최소화
+  link.style.setProperty("display", "flex", "important");
+  link.style.setProperty("align-items", "center", "important");
+  link.style.setProperty("box-sizing", "border-box", "important");
+  link.style.setProperty("height", "28px", "important");
+  link.style.setProperty("min-height", "0", "important");
+  link.style.setProperty("padding", "0 8px", "important");
+  link.style.setProperty("margin", "2px 0 0", "important");
+  link.style.setProperty("font-size", "12px", "important");
+  link.style.setProperty("line-height", "1", "important");
+  link.style.setProperty("font-weight", "normal", "important");
+  link.style.setProperty("text-decoration", "none", "important");
+
+  videoArea.replaceChildren(frame, link);
 }
+
 
 
 /* ==========================================
