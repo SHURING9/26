@@ -92,8 +92,67 @@ footer p { margin: 3px; }
 .dialog-career { color: var(--green); font-size: .85rem; font-weight: bold; margin-bottom: 6px; }
 .work-dialog h2 { font-size: 1.7rem; margin: 0 44px 6px 0; }
 .dialog-place { color: var(--muted); font-size: .9rem; }
-.video-area { margin: 18px 0; background: #182a22; border-radius: 14px; overflow: hidden; aspect-ratio: 16 / 9; display: grid; place-items: center; color: white; }
-.video-area iframe { width: 100%; height: 100%; border: 0; }
+
+/* 영상 팝업 영역 */
+.video-area {
+  margin: 12px 0;
+  background: #182a22;
+  border-radius: 14px;
+  overflow: hidden;
+  aspect-ratio: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: flex-start;
+  color: white;
+}
+
+/* Google Drive 영상 */
+.video-area iframe,
+#videoArea iframe {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 16 / 9;
+  min-height: 0;
+  flex-shrink: 0;
+  border: 0;
+  border-radius: 0;
+}
+
+/* 영상 아래 안내 링크: PC와 모바일 공통 */
+.video-area a,
+#videoArea a {
+  display: flex !important;
+  align-items: center;
+  box-sizing: border-box;
+  width: 100%;
+  height: 28px;
+  min-height: 0;
+  margin: 2px 0 0 !important;
+  padding: 0 8px !important;
+  overflow: hidden;
+  color: #dcefe3;
+  font-size: 12px;
+  line-height: 1;
+  font-weight: normal;
+  text-decoration: none;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.video-area a:hover,
+#videoArea a:hover {
+  text-decoration: underline;
+}
+
+/* 영상이 없을 때 표시되는 안내 */
+.video-placeholder {
+  padding: 20px;
+  text-align: center;
+  line-height: 1.6;
+}
+
 .video-placeholder { padding: 24px; text-align: center; }
 .dialog-description { white-space: pre-line; }
 .dialog-credit { border-top: 1px solid var(--line); padding-top: 12px; color: var(--muted); font-size: .8rem; margin-bottom: 0; }
@@ -105,29 +164,6 @@ footer p { margin: 3px; }
 .map-legend { flex-direction: column; gap: 4px; }
 .map-pin { width: 35px; height: 35px; min-height: 35px; padding: 0; gap: 0; font-size: 15px; max-width: none; }
   
-#videoArea iframe {
-  display: block;
-  width: 100%;
-  aspect-ratio: 16 / 9;
-  min-height: 240px;
-  border: 0;
-  border-radius: 12px;
-  background: #f4f3ef;
-}
-
-#videoArea a {
-  display: inline-block;
-  margin-top: 12px;
-  color: #356b57;
-  overflow-wrap: anywhere;
-}
-
-#videoArea .video-placeholder {
-  padding: 20px;
-  border-radius: 12px;
-  background: #f4f3ef;
-  line-height: 1.7;
-}
 
 @media (max-width: 600px) {
   #videoArea iframe {
