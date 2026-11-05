@@ -566,6 +566,8 @@ function openWork(work) {
 
   renderWorkVideo(work);
 
+console.log("작품 데이터 확인:", work, "댓글 작품키:", getWorkKey(work));
+   
   resetComments();
   currentWorkKey = getWorkKey(work);
 
