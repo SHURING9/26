@@ -320,3 +320,85 @@ footer p { margin: 3px; }
   height: 1px;
   overflow: hidden;
 }
+
+/* A&R 앨범 전시 페이지 연결 카드 */
+.album-project-link {
+  display: flex;
+  align-items: center;
+  gap: 22px;
+  margin: 28px 0;
+  padding: 26px 30px;
+  border: 1px solid #eadcf8;
+  border-radius: 22px;
+  background: linear-gradient(120deg, #f6edff, #fff0f5, #eefbf6);
+}
+
+.album-link-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  width: 68px;
+  height: 68px;
+  border-radius: 20px;
+  background: #ffffffb8;
+  font-size: 2rem;
+}
+
+.album-link-text {
+  flex: 1;
+}
+
+.album-link-text .section-kicker {
+  margin-bottom: 6px;
+}
+
+.album-link-text h2 {
+  margin: 0 0 8px;
+  font-size: 1.35rem;
+}
+
+.album-link-text > p:last-child {
+  margin: 0;
+  line-height: 1.6;
+}
+
+.album-link-button {
+  display: inline-block;
+  flex-shrink: 0;
+  padding: 13px 18px;
+  border-radius: 999px;
+  background: #5b4b80;
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+  transition: transform 0.2s, background 0.2s;
+}
+
+.album-link-button:hover {
+  transform: translateY(-2px);
+  background: #463662;
+}
+
+@media (max-width: 640px) {
+  .album-project-link {
+    flex-wrap: wrap;
+    gap: 14px;
+    padding: 22px;
+  }
+
+  .album-link-icon {
+    width: 54px;
+    height: 54px;
+  }
+
+  .album-link-text {
+    flex-basis: calc(100% - 75px);
+  }
+
+  .album-link-button {
+    width: 100%;
+    text-align: center;
+    box-sizing: border-box;
+  }
+}
