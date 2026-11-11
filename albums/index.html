@@ -27,6 +27,15 @@
       </p>
     </section>
 
+<section id="featured-section" class="featured-section">
+  <div class="featured-heading">
+    <p class="eyebrow">EDITOR'S PICK</p>
+    <h2>오늘의 추천 앨범</h2>
+    <p>기획자의 시선으로 만나는 특별한 앨범</p>
+  </div>
+  <div id="featured-album"></div>
+</section>
+
     <section class="album-section">
       <div class="section-heading">
         <div>
@@ -35,6 +44,26 @@
         </div>
         <span id="album-count">0 Albums</span>
       </div>
+
+<div class="album-controls">
+  <label class="search-box">
+    <span class="sr-only">앨범 검색</span>
+    <span aria-hidden="true">⌕</span>
+    <input
+      id="album-search"
+      type="search"
+      placeholder="앨범명이나 아티스트 검색"
+      autocomplete="off"
+    >
+  </label>
+
+  <label class="filter-box">
+    <span class="sr-only">장르 선택</span>
+    <select id="genre-filter">
+      <option value="all">모든 장르</option>
+    </select>
+  </label>
+</div>
 
       <div id="album-list" class="album-grid"></div>
 
