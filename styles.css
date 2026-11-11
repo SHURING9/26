@@ -488,3 +488,101 @@ footer p { margin: 3px; }
     padding: 15px;
   }
 }
+
+/* 다음 프로젝트 안내 띠 배너 */
+.next-project-banner {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin: 20px 0 28px;
+  padding: 17px 22px;
+  border: 1px solid #e5d8f5;
+  border-radius: 14px;
+  background: linear-gradient(100deg, #f3eaff 0%, #fff0f5 55%, #eef9f4 100%);
+  color: #383047;
+  text-decoration: none;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.next-project-banner:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 18px rgba(86, 63, 115, 0.12);
+}
+
+.next-project-icon {
+  display: grid;
+  place-items: center;
+  flex-shrink: 0;
+  width: 48px;
+  height: 48px;
+  border-radius: 13px;
+  background: rgba(255, 255, 255, 0.8);
+  font-size: 25px;
+}
+
+.next-project-content {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  gap: 4px;
+  min-width: 0;
+}
+
+.next-project-label {
+  color: #8065a8;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 1.2px;
+}
+
+.next-project-content strong {
+  font-size: 16px;
+  line-height: 1.5;
+}
+
+.next-project-description {
+  color: #71687d;
+  font-size: 13px;
+  line-height: 1.5;
+}
+
+.next-project-arrow {
+  flex-shrink: 0;
+  color: #8065a8;
+  font-size: 24px;
+  transition: transform 0.2s ease;
+}
+
+.next-project-banner:hover .next-project-arrow {
+  transform: translate(3px, -3px);
+}
+
+@media (max-width: 600px) {
+  .next-project-banner {
+    gap: 11px;
+    padding: 14px;
+    margin-top: 16px;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+  }
+
+  .next-project-icon {
+    width: 40px;
+    height: 40px;
+    font-size: 21px;
+  }
+
+  .next-project-content strong {
+    font-size: 14px;
+  }
+
+  .next-project-description {
+    font-size: 12px;
+  }
+
+  .next-project-label {
+    font-size: 9px;
+    letter-spacing: 0.5px;
+  }
+}
