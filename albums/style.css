@@ -42,30 +42,38 @@ button {
   font: inherit;
 }
 
+
 .album-header {
   display: flex;
   justify-content: space-between;
   align-items: center;
   gap: 16px;
-  padding: 22px 6%;
-  border-bottom: 1px solid #ffffff14;
+  min-height: 38px;
+  padding: 6px 6%;
+  box-sizing: border-box;
+  background: #f1eafa;
+  border-bottom: 1px solid #e5d9f0;
 }
 
 .brand {
   font-family: 'Jua', sans-serif;
-  font-size: 1.5rem;
-  letter-spacing: 1px;
-  color: var(--pink);
+  font-size: 1rem;
+  letter-spacing: 1.5px;
+  color: #684b80;
+  text-decoration: none;
+  white-space: nowrap;
 }
 
 .home-link {
-  color: var(--muted);
-  font-size: 0.92rem;
+  color: #796b87;
+  font-size: 0.82rem;
+  text-decoration: none;
+  white-space: nowrap;
   transition: color 0.2s;
 }
 
 .home-link:hover {
-  color: white;
+  color: #a06ac0;
 }
 
 main {
@@ -74,11 +82,15 @@ main {
 }
 
 .album-hero {
-  padding: 86px 0 64px;
+  padding: 64px 6% 42px;
+  box-sizing: border-box;
+  max-width: 1200px;
+  margin: 0 auto;
 }
 
+
 .eyebrow {
-  margin: 0 0 10px;
+  margin: 0 0 14px;
   color: var(--mint);
   font-size: 0.78rem;
   font-weight: bold;
@@ -93,10 +105,24 @@ main {
   letter-spacing: -1px;
 }
 
-.album-hero > p:last-child {
-  margin-top: 20px;
+.album-hero > p.hero-description {
+  margin: 20px 0 0;
   color: var(--muted);
   font-size: 1.05rem;
+  line-height: 1.8;
+}
+
+.hero-bottom {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 8px 20px;
+  margin-top: 34px;
+  padding-top: 14px;
+  border-top: 1px solid #ffffff24;
+  color: var(--muted);
+  font-size: 0.7rem;
+  letter-spacing: 1.5px;
 }
 
 .album-section {
