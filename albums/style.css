@@ -369,3 +369,26 @@ main {
     align-items: start;
   }
 }
+
+
+.cover-placeholder {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-start;
+  padding: 18px;
+  color: #292538;
+  overflow-wrap: anywhere;
+}
+
+.cover-placeholder span {
+  font-size: 0.7rem;
+  font-weight: bold;
+  letter-spacing: 2px;
+}
+
+.cover-placeholder strong {
+  font-family: 'Jua', sans-serif;
+  font-size: clamp(1.2rem, 2vw, 1.8rem);
+  line-height: 1.25;
+}
