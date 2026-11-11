@@ -82,7 +82,7 @@ main {
 }
 
 .album-hero {
-  padding: 64px 6% 42px;
+  padding: 40px 6% 24px;
   box-sizing: border-box;
   max-width: 1200px;
   margin: 0 auto;
@@ -90,11 +90,7 @@ main {
 
 
 .eyebrow {
-  margin: 0 0 14px;
-  color: var(--mint);
-  font-size: 0.78rem;
-  font-weight: bold;
-  letter-spacing: 2px;
+  margin: 0 0 8px;
 }
 
 .album-hero h1 {
@@ -106,10 +102,10 @@ main {
 }
 
 .album-hero > p.hero-description {
-  margin: 20px 0 0;
+  margin: 12px 0 0;
   color: var(--muted);
   font-size: 1.05rem;
-  line-height: 1.8;
+  line-height: 1.6;
 }
 
 .hero-bottom {
@@ -117,8 +113,8 @@ main {
   flex-wrap: wrap;
   justify-content: space-between;
   gap: 8px 20px;
-  margin-top: 34px;
-  padding-top: 14px;
+  margin-top: 24px;
+  padding-top: 10px;
   border-top: 1px solid #ffffff24;
   color: var(--muted);
   font-size: 0.7rem;
