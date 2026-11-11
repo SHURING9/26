@@ -576,3 +576,16 @@ main {
     max-width: 320px;
   }
 }
+
+/* A&R 띠지의 보조 설명 */
+.album-header .brand .ribbon-subtitle {
+  display: inline;
+  margin-left: 12px;
+  color: #796b87;
+  font-family: 'Gowun Dodum', sans-serif;
+  font-size: 0.7rem;
+  font-weight: 400;
+  letter-spacing: 0;
+  line-height: 1.4;
+  vertical-align: middle;
+}
