@@ -1,0 +1,61 @@
+
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#171923">
+  <title>우리의 앨범 | A&R 프로젝트</title>
+  <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+  <header class="album-header">
+    <a class="brand" href="./index.html">
+      OUR ALBUMS
+    </a>
+    <a class="home-link" href="../index.html">
+      ← 프로젝트 메인으로
+    </a>
+  </header>
+
+  <main>
+    <section class="album-hero">
+      <p class="eyebrow">2026 · A&R PROJECT</p>
+      <h1>우리가 만든 음악의 세계</h1>
+      <p>
+        우리의 상상으로 기획하고 디자인한 앨범을 만나 보세요.
+      </p>
+    </section>
+
+    <section class="album-section">
+      <div class="section-heading">
+        <div>
+          <p class="eyebrow">STUDENT ALBUMS</p>
+          <h2>앨범 둘러보기</h2>
+        </div>
+        <span id="album-count">0 Albums</span>
+      </div>
+
+      <div id="album-list" class="album-grid"></div>
+
+      <p id="empty-message" class="empty-message">
+        첫 번째 앨범을 준비하고 있어요.
+      </p>
+    </section>
+
+    <section id="album-detail" class="album-detail" hidden>
+      <button id="close-detail" class="back-button" type="button">
+        ← 앨범 목록으로
+      </button>
+      <div id="detail-content"></div>
+    </section>
+  </main>
+
+  <footer class="album-footer">
+    <p>OUR ALBUMS · A&R MUSIC PROJECT</p>
+    <p>우리가 기획한 음악, 우리가 완성한 이야기</p>
+  </footer>
+
+  <script src="./app.js"></script>
+</body>
+</html>
