@@ -585,3 +585,55 @@ main {
   line-height: 1.4;
   vertical-align: middle;
 }
+
+/* 앨범 커버 + 타이틀곡 플레이어 */
+.detail-cover-column {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  min-width: 0;
+}
+
+.title-track-player {
+  padding: 18px;
+  border: 1px solid #e6ddf4;
+  border-radius: 18px;
+  background: linear-gradient(135deg, #f7f2ff, #fff7fa);
+  min-width: 0;
+}
+
+.title-track-label {
+  margin: 0 0 8px;
+  color: #8170a9;
+  font-size: 0.75rem;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+}
+
+.title-track-name {
+  margin: 0 0 14px;
+  color: #352d48;
+  font-size: 1.1rem;
+  line-height: 1.5;
+  overflow-wrap: anywhere;
+}
+
+.title-track-audio {
+  display: block;
+  width: 100%;
+  max-width: 100%;
+  height: 42px;
+}
+
+.title-track-pending {
+  margin: 0;
+  color: #777083;
+  font-size: 0.9rem;
+  line-height: 1.6;
+}
+
+@media (max-width: 600px) {
+  .title-track-player {
+    padding: 14px;
+  }
+}
