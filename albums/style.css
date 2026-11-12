@@ -581,6 +581,7 @@ main {
   }
 }
 
+
 /* A&R 띠지의 보조 설명 */
 .album-header .brand .ribbon-subtitle {
   display: inline;
@@ -592,6 +593,142 @@ main {
   letter-spacing: 0;
   line-height: 1.4;
   vertical-align: middle;
+}
+
+/* 태블릿 */
+@media (max-width: 900px) {
+  .album-header {
+    padding: 10px 4%;
+    gap: 12px;
+  }
+
+  .album-header .brand {
+    font-size: 0.95rem;
+    letter-spacing: 0.5px;
+  }
+
+  .album-header .brand .ribbon-subtitle {
+    margin-left: 6px;
+    font-size: 0.68rem;
+  }
+
+  .home-link {
+    font-size: 0.78rem;
+  }
+}
+
+/* 모바일 */
+@media (max-width: 620px) {
+  .album-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 4px;
+    padding: 10px 5%;
+  }
+
+  .album-header .brand {
+    display: block;
+    white-space: normal;
+    font-size: 1rem;
+    line-height: 1.5;
+  }
+
+  .album-header .brand .ribbon-subtitle {
+    display: block;
+    margin: 2px 0 0;
+    font-size: 0.72rem;
+    line-height: 1.5;
+  }
+
+  .home-link {
+    display: block;
+    white-space: normal;
+    font-size: 0.78rem;
+  }
+
+  .album-hero {
+    padding: 36px 0 24px;
+  }
+
+  .album-hero h1 {
+    font-size: clamp(2rem, 9vw, 2.8rem);
+    overflow-wrap: anywhere;
+  }
+
+  .album-hero > p.hero-description {
+    font-size: 0.95rem;
+  }
+
+  .hero-bottom {
+    margin-top: 18px;
+    font-size: 0.65rem;
+    letter-spacing: 1px;
+  }
+
+  .album-section {
+    padding-bottom: 48px;
+  }
+
+  .section-heading {
+    gap: 8px;
+    margin-bottom: 18px;
+  }
+
+  .album-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 12px;
+  }
+
+  .album-card {
+    padding: 9px;
+  }
+
+  .album-card h3 {
+    margin-top: 10px;
+    font-size: 0.95rem;
+  }
+
+  .album-genre {
+    font-size: 0.68rem;
+    padding: 4px 8px;
+  }
+
+  .featured-section {
+    margin-bottom: 36px;
+  }
+
+  .featured-card {
+    padding: 14px;
+    gap: 14px;
+  }
+
+  .detail-layout {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 20px;
+  }
+
+  .detail-cover {
+    width: 100%;
+    max-width: 360px;
+  }
+
+  .detail-info h2 {
+    font-size: 2rem;
+  }
+
+  .detail-description {
+    padding: 12px 0;
+    font-size: 0.92rem;
+  }
+
+  .track-item {
+    gap: 10px;
+    padding: 12px 0;
+  }
+
+  .album-footer {
+    padding: 24px 5%;
+  }
 }
 
 /* ===================================
