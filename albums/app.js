@@ -1,24 +1,89 @@
 
 /* =========================================
    OUR ALBUMS · 고2 A&R 앨범 기획 프로젝트
-   학생 17명 작품 등록용
+   선생님 가이드 샘플 + 학생 17명 작품 등록
    ========================================= */
 
 /*
   작품 등록 방법
   1. student: 학생 번호
-  2. title: 앨범명
-  3. artist: 아티스트명
-  4. genre: 음악 장르
-  5. cover: 앨범 재킷 경로
-  6. concept: 앨범 콘셉트
-  7. planning: A&R 기획 의도
-  8. target: 타깃 청중
-  9. tracks: 수록곡 목록
+  2. published: 공개 여부
+  3. featured: 추천 앨범 여부
+  4. title: 앨범명
+  5. artist: 아티스트명
+  6. genre: 음악 장르
+  7. cover: 앨범 재킷 이미지 경로
+  8. color: 이미지가 없을 때 사용할 배경색
+  9. concept: 앨범 콘셉트
+  10. planning: A&R 기획 의도
+  11. target: 타깃 청중
+  12. tracks: 수록곡 목록
 
-  아직 완성되지 않은 작품은 published: false
-  전시할 작품은 published: true 로 설정
+  학생 작품은 published: false로 시작합니다.
+  전시할 학생 작품만 published: true로 변경하세요.
+  학생 작품의 student 번호는 01~17을 유지하세요.
 */
+
+
+/* ---------- 선생님 가이드 앨범 ---------- */
+
+const teacherAlbum = {
+  student: "TEACHER",
+  isTeacherSample: true,
+  published: true,
+  featured: true,
+
+  title: "Talk to Me, Mirror",
+  artist: "ZiNA",
+  genre: " Dance-pop, Alternative R&B",
+  cover: "./covers/teacher-zina.png",
+  color: "lavender",
+
+  concept:
+    "타인의 시선과 사회가 요구하는 모습에서 벗어나 진정한 자기 자신을 발견하고, 자신의 선택으로 삶을 살아가는 과정 ",
+
+  planning:
+    "세련되고 몽환적이며 신비로운 분위기에서 시작해 " +
+    "따뜻하고 희망적인 분위기로 변화하는 구성 " +
+    "이 앨범은 화려한 무대 뒤에서 자신의 진짜 모습을 고민하는 아티스트의 이야기를 통해," +
+    "타인에게 보이는 모습과 실제 자신의 모습 사이의 간극을 표현하고자 한다.", +
+    "거울을 자신을 돌아보는 매개체로 활용하여, 처음엔 자신이 누구인지 묻지만", +
+    "마지막엔 스스로 자신의 정체성을 받아들이고 자기 삶의 주체가 되는 모습을 담는다.", +
+
+  target:
+    "자신에 대한 타인의 평가와 기대 속에서 진정한 자아를 찾아가고 싶은 청소년 및 청년. ",
+
+  tracks: [
+    {
+      title: "Behind the Lights",
+      description:
+        "공연이 끝난 뒤 마주하는 고독과 공허함 - 앨범의 세계관 도입"
+    },
+    {
+      title: "Talk to ME, Mirror",
+      description:
+        "거울 앞에서 진짜 자신의 목소리를 찾는 이야기 - title"
+    },
+    {
+      title: "Secondhand Heart",
+      description:
+        "타인의 기대에 맞추느라 잃어버린 감정과 선택 - 내면의 갈등(몽환적인 신스와 기타 사운드)"
+    },
+    {
+      title: "My Own Way",
+      description:
+        "불완전한 자신을 받아들이고 스스로 선택하는 과정 - 변화와 성장 표현"
+    }
+       {
+      title: "Here, As I Am",
+      description:
+        "꾸밈없는 자신으로 세상에 서겠다는 다짐 - 앨범의 결말과 메시지 완성"
+    }
+  ]
+};
+
+
+/* ---------- 학생 작품 17개 ---------- */
 
 const albums = [
   {
@@ -29,6 +94,7 @@ const albums = [
     artist: "학생 01",
     genre: "미분류",
     cover: "",
+    color: "pink",
     concept: "",
     planning: "",
     target: "",
@@ -42,6 +108,7 @@ const albums = [
     artist: "학생 02",
     genre: "미분류",
     cover: "",
+    color: "lavender",
     concept: "",
     planning: "",
     target: "",
@@ -55,6 +122,7 @@ const albums = [
     artist: "학생 03",
     genre: "미분류",
     cover: "",
+    color: "mint",
     concept: "",
     planning: "",
     target: "",
@@ -68,6 +136,7 @@ const albums = [
     artist: "학생 04",
     genre: "미분류",
     cover: "",
+    color: "yellow",
     concept: "",
     planning: "",
     target: "",
@@ -81,6 +150,7 @@ const albums = [
     artist: "학생 05",
     genre: "미분류",
     cover: "",
+    color: "peach",
     concept: "",
     planning: "",
     target: "",
@@ -94,6 +164,7 @@ const albums = [
     artist: "학생 06",
     genre: "미분류",
     cover: "",
+    color: "pink",
     concept: "",
     planning: "",
     target: "",
@@ -107,6 +178,7 @@ const albums = [
     artist: "학생 07",
     genre: "미분류",
     cover: "",
+    color: "lavender",
     concept: "",
     planning: "",
     target: "",
@@ -120,6 +192,7 @@ const albums = [
     artist: "학생 08",
     genre: "미분류",
     cover: "",
+    color: "mint",
     concept: "",
     planning: "",
     target: "",
@@ -133,6 +206,7 @@ const albums = [
     artist: "학생 09",
     genre: "미분류",
     cover: "",
+    color: "yellow",
     concept: "",
     planning: "",
     target: "",
@@ -146,6 +220,7 @@ const albums = [
     artist: "학생 10",
     genre: "미분류",
     cover: "",
+    color: "peach",
     concept: "",
     planning: "",
     target: "",
@@ -159,6 +234,7 @@ const albums = [
     artist: "학생 11",
     genre: "미분류",
     cover: "",
+    color: "pink",
     concept: "",
     planning: "",
     target: "",
@@ -172,6 +248,7 @@ const albums = [
     artist: "학생 12",
     genre: "미분류",
     cover: "",
+    color: "lavender",
     concept: "",
     planning: "",
     target: "",
@@ -185,6 +262,7 @@ const albums = [
     artist: "학생 13",
     genre: "미분류",
     cover: "",
+    color: "mint",
     concept: "",
     planning: "",
     target: "",
@@ -198,6 +276,7 @@ const albums = [
     artist: "학생 14",
     genre: "미분류",
     cover: "",
+    color: "yellow",
     concept: "",
     planning: "",
     target: "",
@@ -211,6 +290,7 @@ const albums = [
     artist: "학생 15",
     genre: "미분류",
     cover: "",
+    color: "peach",
     concept: "",
     planning: "",
     target: "",
@@ -224,6 +304,7 @@ const albums = [
     artist: "학생 16",
     genre: "미분류",
     cover: "",
+    color: "pink",
     concept: "",
     planning: "",
     target: "",
@@ -237,6 +318,7 @@ const albums = [
     artist: "학생 17",
     genre: "미분류",
     cover: "",
+    color: "lavender",
     concept: "",
     planning: "",
     target: "",
@@ -265,7 +347,6 @@ const albumHero = document.querySelector(".album-hero");
 const albumDetail = document.getElementById("album-detail");
 const detailContent = document.getElementById("detail-content");
 const closeDetailButton = document.getElementById("close-detail");
-
 const searchInput = document.getElementById("album-search");
 const genreFilter = document.getElementById("genre-filter");
 const featuredSection = document.getElementById("featured-section");
@@ -279,12 +360,19 @@ const coverColors = {
   peach: "linear-gradient(135deg, #ffcdb9, #f6b8d5)"
 };
 
-// 실제 전시 대상으로 등록된 작품만 사용
+
+/* ---------- 공개 작품 관리 ---------- */
+
+// 선생님 샘플은 항상 공개.
+// 학생 작품은 published: true인 작품만 공개.
 function getPublishedAlbums() {
-  return albums.filter(album =>
-    album.published === true &&
-    album.title.trim() !== ""
-  );
+  return [
+    teacherAlbum,
+    ...albums.filter(album =>
+      album.published === true &&
+      album.title.trim() !== ""
+    )
+  ];
 }
 
 
@@ -312,7 +400,7 @@ function getCoverMarkup(album, className = "album-cover") {
       role="img"
       aria-label="${escapeHTML(album.title)} 앨범 재킷 준비 중"
     >
-      <span>OUR ALBUMS</span>
+      <span>${album.isTeacherSample ? "TEACHER'S GUIDE" : "OUR ALBUMS"}</span>
       <strong>${escapeHTML(album.title)}</strong>
     </div>
   `;
@@ -361,7 +449,8 @@ function getFilteredAlbums() {
       album.title,
       album.artist,
       album.genre,
-      album.concept
+      album.concept,
+      album.isTeacherSample ? "선생님 가이드 샘플" : ""
     ].join(" ").toLocaleLowerCase();
 
     const matchesSearch = searchableText.includes(query);
@@ -397,32 +486,34 @@ function renderAlbums() {
   albumList.innerHTML = filteredAlbums.length
     ? filteredAlbums.map(album => `
         <article
-          class="album-card"
+          class="album-card ${album.isTeacherSample ? "teacher-sample-card" : ""}"
           role="button"
           tabindex="0"
           data-student="${escapeHTML(album.student)}"
           aria-label="${escapeHTML(album.title)} 상세 정보 보기"
         >
           ${getCoverMarkup(album)}
+
+          ${album.isTeacherSample
+            ? `<span class="sample-label">선생님 가이드 · 샘플</span>`
+            : ""}
+
           <h3>${escapeHTML(album.title)}</h3>
+
           <p class="album-artist">
             ${escapeHTML(album.artist)}
           </p>
+
           <span class="album-genre">
             ${escapeHTML(album.genre)}
           </span>
         </article>
       `).join("")
-    : "";
-
-  // 빈 검색 결과 안내
-  if (publishedAlbums.length > 0 && filteredAlbums.length === 0) {
-    albumList.innerHTML = `
-      <p class="no-results">
-        검색 결과가 없어요. 다른 검색어나 장르를 선택해 보세요.
-      </p>
-    `;
-  }
+    : `
+        <p class="no-results">
+          검색 결과가 없어요. 다른 검색어나 장르를 선택해 보세요.
+        </p>
+      `;
 }
 
 
@@ -446,7 +537,7 @@ function renderFeaturedAlbum() {
 
   featuredAlbumContainer.innerHTML = `
     <article
-      class="featured-card"
+      class="featured-card ${featuredAlbum.isTeacherSample ? "teacher-sample-card" : ""}"
       role="button"
       tabindex="0"
       data-student="${escapeHTML(featuredAlbum.student)}"
@@ -455,13 +546,21 @@ function renderFeaturedAlbum() {
       ${getCoverMarkup(featuredAlbum)}
 
       <div class="featured-copy">
-        <p class="eyebrow">FEATURED ALBUM</p>
+        <p class="eyebrow">
+          ${featuredAlbum.isTeacherSample
+            ? "TEACHER'S GUIDE · SAMPLE"
+            : "FEATURED ALBUM"}
+        </p>
+
         <h3>${escapeHTML(featuredAlbum.title)}</h3>
+
         <p>
           ${escapeHTML(featuredAlbum.artist)}
           · ${escapeHTML(featuredAlbum.genre)}
         </p>
+
         <p>${escapeHTML(featuredAlbum.concept)}</p>
+
         <span class="featured-open">앨범 만나보기 →</span>
       </div>
     </article>
@@ -489,13 +588,27 @@ function openAlbum(studentNumber) {
       </div>
 
       <div class="detail-info">
-        <p class="eyebrow">ALBUM INFORMATION</p>
+        <p class="eyebrow">
+          ${album.isTeacherSample
+            ? "TEACHER'S GUIDE · SAMPLE ALBUM"
+            : "ALBUM INFORMATION"}
+        </p>
+
         <h2>${escapeHTML(album.title)}</h2>
 
         <p>
           ${escapeHTML(album.artist)}
           · ${escapeHTML(album.genre)}
         </p>
+
+        ${album.isTeacherSample
+          ? `
+            <p class="sample-notice">
+              수업 참고용으로 제작한 선생님 가이드 앨범입니다.
+              앨범 기획과 디자인의 예시를 살펴보세요.
+            </p>
+          `
+          : ""}
 
         <div class="detail-description">
           <h3>앨범 콘셉트</h3>
@@ -522,6 +635,7 @@ function openAlbum(studentNumber) {
                   <span class="track-number">
                     ${String(index + 1).padStart(2, "0")}
                   </span>
+
                   <div>
                     <strong>${escapeHTML(track.title)}</strong>
                     <span>
