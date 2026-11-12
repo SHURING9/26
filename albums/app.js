@@ -59,11 +59,13 @@ const teacherAlbum = {
       description:
         "공연이 끝난 뒤 마주하는 고독과 공허함 - 앨범의 세계관 도입"
     },
-    {
-      title: "Talk to ME, Mirror",
-      description:
-        "거울 앞에서 진짜 자신의 목소리를 찾는 이야기 - title"
-    },
+  {
+  title: "Talk to ME, Mirror",
+  description:
+    "거울 앞에서 진짜 자신의 목소리를 찾는 이야기 - title",
+  isTitle: true,
+  audio: "./audio/teacher.mp3"
+},
     {
       title: "Secondhand Heart",
       description:
@@ -580,12 +582,51 @@ function openAlbum(studentNumber) {
   const tracks = Array.isArray(album.tracks)
     ? album.tracks
     : [];
+   const titleTrack =
+  tracks.find(track => track.isTitle) || null;
 
   detailContent.innerHTML = `
     <div class="detail-layout">
-      <div>
-        ${getCoverMarkup(album, "detail-cover")}
-      </div>
+     
+<div class="detail-cover-column">
+  ${getCoverMarkup(album, "detail-cover")}
+
+  <div class="title-track-player">
+    <p class="title-track-label">
+      ♫ TITLE TRACK
+    </p>
+
+    ${titleTrack ? `
+      <h3 class="title-track-name">
+        ${escapeHTML(titleTrack.title)}
+      </h3>
+
+      ${titleTrack.audio ? `
+        <audio
+          class="title-track-audio"
+          controls
+          preload="none"
+          aria-label="${escapeHTML(titleTrack.title)} 재생"
+        >
+          <source
+            src="${escapeHTML(titleTrack.audio)}"
+            type="audio/mpeg"
+          >
+          브라우저에서 오디오 재생을 지원하지 않습니다.
+        </audio>
+      ` : `
+        <p class="title-track-pending">
+          음원이 등록되면 재생할 수 있어요.
+        </p>
+      `}
+    ` : `
+      <p class="title-track-pending">
+        타이틀곡 정보 준비 중
+      </p>
+    `}
+  </div>
+</div>
+
 
       <div class="detail-info">
         <p class="eyebrow">
