@@ -760,7 +760,7 @@ window.receiveWorksFromSheet = function(data) {
 
 function loadWorksFromSheet() {
   const script = document.createElement("script");
-
+ script.crossOrigin = "anonymous";   // 추가: 로그인 정보 없이 요청
   script.src =
     SHEET_API_URL +
     "?callback=receiveWorksFromSheet&t=" +
