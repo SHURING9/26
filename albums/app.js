@@ -313,17 +313,28 @@ const albums = [
   },
   {
     student: "14",
-    published: false,
+    published: true,
     featured: false,
-    title: "",
-    artist: "학생 14",
-    genre: "미분류",
-    cover: "",
+    title: "미완의 계절",
+    artist: "한로로 (학생 가상 기획)",
+    genre: "Modern Rock, Alternative Rock",
+    cover: "./covers/student14.png",
     color: "yellow",
-    concept: "",
-    planning: "",
-    target: "",
-    tracks: []
+    concept:
+      "아직 완성되지 않은 청춘의 불안과 방황, 성장의 과정을 담는다. 누구나 서툴고 흔들리는 시기를 겪지만, 그러한 불완전함 또한 자신만의 계절을 만들어 가는 과정이라는 메세지를 전달하고 싶다.",
+    planning:
+      "완벽하지 않은 청춘의 모습을 있는 그대로 담아내고 싶다. 불안과 방황 속에서도 자신만의 속도로 성장하는 사람들에게 위로와 공감을 전하기 위해 이 앨범을 기획했다.\n" +
+      "아직 완성되지 않았다고 해서 우리의 시간이 의미없는 것은 아니다. 서툴고 흔들리는 순간마저도 소중한 청춘의 일부라는 것을 전하고 싶다.",
+    target:
+      "청춘을 보내며 고민과 불안을 경험하고, 음악을 통해 위로받고 싶은 사람",
+    pdf: "./pdfs/student14.pdf",
+    tracks: [
+      {
+        title: "미완의 계절",
+        isTitle: true,
+        suno: "https://suno.com/song/835fb6b8-cfdb-4bb6-a804-057d63a488f5"
+      }
+    ]
   },
   {
     student: "15",
