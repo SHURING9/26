@@ -18,6 +18,39 @@
   10. planning: A&R 기획 의도
   11. target: 타깃 청중
   12. tracks: 수록곡 목록
+  13. pdf: 기획서 PDF 경로  예) "./pdfs/student01.pdf"
+
+  수록곡(tracks) 안에는
+  - suno: Suno 공유 링크, 임베드 링크, 임베드 코드(iframe) 중 하나
+  - audio: mp3 파일 경로
+  - isTitle: true 이면 타이틀곡
+
+  임베드 코드(iframe)는 따옴표가 섞여 있으므로
+  백틱(`)으로 감싸세요.
+
+  학생 작품 예시
+  {
+    student: "01",
+    published: true,
+    featured: false,
+    title: "앨범명",
+    artist: "아티스트명",
+    genre: "Pop",
+    cover: "./covers/student01.jpg",
+    color: "pink",
+    concept: "앨범 콘셉트",
+    planning: "기획 의도",
+    target: "타깃 청중",
+    pdf: "./pdfs/student01.pdf",
+    tracks: [
+      {
+        title: "곡 제목",
+        description: "곡 설명",
+        isTitle: true,
+        suno: "https://suno.com/song/곡ID"
+      }
+    ]
+  },
 
   학생 작품은 published: false로 시작합니다.
   전시할 학생 작품만 published: true로 변경하세요.
@@ -86,18 +119,29 @@ planning:
 
 const albums = [
   {
-    student: "01",
-    published: false,
+    student: "17",
+    published: true,
     featured: false,
-    title: "",
-    artist: "학생 01",
-    genre: "미분류",
-    cover: "",
+    title: "마음번역소 (The Heart Translation Bureau)",
+    artist: "레드벨벳 (학생 가상 기획)",
+    genre: "Pop, R&B, Synth-pop, Ballad",
+    cover: "./covers/student17.png",
     color: "pink",
-    concept: "",
-    planning: "",
-    target: "",
-    tracks: []
+    concept:
+      "말로 표현되지 못한 마음과 잘못 전달된 감정들이 모이는 가상의 '마음 번역소'를 배경으로 함. 멤버들은 번역소의 직원이 되어 다양한 사람들의 마음을 만나고, 이를 해석하는 과정에서 자신의 내면과 감정까지 발견.",
+    planning:
+      "사람마다 마음을 표현하고 받아들이는 방식은 다르지만, 우리는 종종 타인의 마음을 이해하지 못하거나 자신의 감정을 숨기기도 함. 이런 마음들이 모이는 가상의 번역소 공간을 통해 사람 사이의 소통과 이해의 과정을 표현하고자 함.\n" +
+      "모든 마음이 완벽하게 전달되거나 번역될 수는 없음. 하지만 서로의 마음을 이해하려는 노력 자체가 소통의 시작이 될 수 있다는 것을 전하고 싶음.",
+    target:
+      "자신의 감정을 표현하는데 서툴거나, 타인의 마음을 이해하고 관계를 이어 나가는 과정에서 고민하는 사람들",
+    pdf: "./pdfs/student17.pdf",
+    tracks: [
+      {
+        title: "빨간 우체통 (Red Mailbox)",
+        isTitle: true,
+        suno: "https://suno.com/song/25142956-8669-47b4-b892-b2e89b376e66"
+      }
+    ]
   },
   {
     student: "02",
@@ -406,6 +450,48 @@ function getCoverMarkup(album, className = "album-cover") {
 }
 
 
+/* ---------- Suno 음악 ---------- */
+
+// 곡 ID가 들어 있으면 사이트 안에 플레이어를 보여 주고,
+// 짧은 공유 링크(suno.com/s/...)는 새 창에서 여는 버튼을 보여 줍니다.
+function getSunoMarkup(value, title) {
+  const text = String(value ?? "").trim();
+
+  const songId = text.match(
+    /suno\.com\/(?:embed|song)\/([0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12})/i
+  );
+
+  if (songId) {
+    return `
+      <iframe
+        class="suno-player"
+        src="https://suno.com/embed/${songId[1]}"
+        title="${escapeHTML(title)} Suno 플레이어"
+        allow="autoplay; encrypted-media; fullscreen"
+        loading="lazy"
+      ></iframe>
+    `;
+  }
+
+  const link = text.match(
+    /https:\/\/(?:www\.)?suno\.com\/[^\s"'<>]+/i
+  );
+
+  if (link) {
+    return `
+      <a
+        class="suno-link"
+        href="${escapeHTML(link[0])}"
+        target="_blank"
+        rel="noopener noreferrer"
+      >♫ Suno에서 듣기 ↗</a>
+    `;
+  }
+
+  return "";
+}
+
+
 /* ---------- 장르 필터 ---------- */
 
 function renderGenreOptions() {
@@ -598,7 +684,7 @@ function openAlbum(studentNumber) {
         ${escapeHTML(titleTrack.title)}
       </h3>
 
-      ${titleTrack.audio ? `
+      ${getSunoMarkup(titleTrack.suno, titleTrack.title) || (titleTrack.audio ? `
         <audio
           class="title-track-audio"
           controls
@@ -615,7 +701,7 @@ function openAlbum(studentNumber) {
         <p class="title-track-pending">
           음원이 등록되면 재생할 수 있어요.
         </p>
-      `}
+      `)}
     ` : `
       <p class="title-track-pending">
         타이틀곡 정보 준비 중
@@ -648,6 +734,15 @@ function openAlbum(studentNumber) {
           `
           : ""}
 
+        ${album.pdf ? `
+          <a
+            class="pdf-link"
+            href="${escapeHTML(album.pdf)}"
+            target="_blank"
+            rel="noopener noreferrer"
+          >📄 앨범 기획서 보기 (PDF)</a>
+        ` : ""}
+
         <div class="detail-description">
           <h3>앨범 콘셉트</h3>
           <p>${escapeHTML(album.concept || "정보 준비 중")}</p>
@@ -663,7 +758,9 @@ function openAlbum(studentNumber) {
           <p>${escapeHTML(album.target || "정보 준비 중")}</p>
         </div>
 
-        <div class="track-section">
+        <div class="track-section" ${
+          tracks.length === 1 && tracks[0].isTitle ? "hidden" : ""
+        }>
           <h3>수록곡</h3>
 
           ${tracks.length ? `
@@ -674,11 +771,12 @@ function openAlbum(studentNumber) {
                     ${String(index + 1).padStart(2, "0")}
                   </span>
 
-                  <div>
+                  <div class="track-body">
                     <strong>${escapeHTML(track.title)}</strong>
-                    <span>
+                    <span class="track-description">
                       ${escapeHTML(track.description || "")}
                     </span>
+                    ${track.isTitle ? "" : getSunoMarkup(track.suno, track.title)}
                   </div>
                 </li>
               `).join("")}
@@ -704,6 +802,7 @@ function openAlbum(studentNumber) {
 
 function closeAlbumDetail() {
   albumDetail.hidden = true;
+  detailContent.innerHTML = ""; // 재생 중인 음악 멈추기
   albumHero.hidden = false;
   albumSection.hidden = false;
 
