@@ -354,11 +354,11 @@ const albums = [
     tracks: []
   },
   {
-    student: "17",
+    student: "01",
     published: false,
     featured: false,
     title: "",
-    artist: "학생 17",
+    artist: "학생 01",
     genre: "미분류",
     cover: "",
     color: "lavender",
